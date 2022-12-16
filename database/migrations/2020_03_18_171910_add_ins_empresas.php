@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddInsEmpresas extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('empresas', function (Blueprint $table) {
+            $table->dropColumn('insc_estadual');
+            $table->dropColumn('insc_municipal');
+            $table->dropColumn('responsavel_cadastro');
+            $table->dropColumn('servico');
+            $table->dropColumn('subscribe_me');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('empresas', function (Blueprint $table) {
+            //
+        });
+    }
+}
