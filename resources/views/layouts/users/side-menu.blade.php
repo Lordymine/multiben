@@ -33,6 +33,8 @@
 			</a>
 			<a class="list-group-item @if(Route::currentRouteName() == 'users_truckplan') active @endif" href="{{route('users_truckplan')}}">
 				<i class="icon-head"></i>Assinatura
+
+			<!-- Foi alterado a nomenclatura de Assinante para Seja Assinante-->
 			</a>
 <!-- 			<a class="list-group-item @if(Route::currentRouteName() == 'user_business_partner') active @endif" href="{{route('user_business_partner')}}"> -->
 <!-- 				<i class="icon-heart"></i>Sócios -->

@@ -34,6 +34,8 @@
 <!--                 <li><a href="{{route('user_create_companies')}}">Minhas Empresas</a></li> -->
 				<li><a href="{{route('user_bonus')}}">Solicitações de Bônus</a></li>
                 <li><a href="{{route('user_referrals')}}">Indicações</a></li>
+                @endif
+
                 @if(Auth::user()->cnpj == null)
                 <li><a href="{{route('user_payments')}}">Pagamentos</a></li>
                 <li><a href="{{route('users_plan')}}">Assinatura</a></li>

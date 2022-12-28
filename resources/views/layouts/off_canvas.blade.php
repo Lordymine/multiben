@@ -39,6 +39,8 @@
 					<li><a href="{{route('users_plan')}}">Assinatura</a></li>
 <!-- 					<li><a href="{{route('user_business_partner')}}">Sócios</a></li> -->
 					@endif
+
+					@endif
 					<li class="sub-menu-separator"></li>
 					<li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-unlock"></i> Logout</a></li>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
