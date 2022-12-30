@@ -48,13 +48,20 @@
                         </li>
                         <li><a href="{{route('users_profile')}}">Perfil</a></li>
 <!--                         <li><a href="{{route('user_create_companies')}}">Minhas Empresas</a></li> -->
-						<li><a href="{{route('user_bonus')}}">Solicitações de Bônus</a></li>
+                        
+                            <!-- Trocado Solicitações de Bônus por Solicitação de Bônus -->
+                             <!-- Tirando acesso de Partners em: Solicitação de Bônus e Indicações -->
+                        @if((Auth::user()->cnpj == null) && (Auth::user()->cpf != null))
+                        <!-- <li><a href="{{route('user_bonus')}}">Solicitações de Bônus</a></li> -->
+                        <li><a href="{{route('user_bonus')}}">Solicitação de Bônus</a></li>
                         <li><a href="{{route('user_referrals')}}">Indicações</a></li>
-                      	@if(Auth::user()->cnpj == null)
+                        @endif
+                        @if(Auth::user()->cnpj == null)
                         <li><a href="{{route('user_payments')}}">Pagamentos</a></li>
                         <li><a href="{{route('users_plan')}}">Assinatura</a></li>
 <!--                         <li><a href="{{route('user_business_partner')}}">Sócios</a></li> -->
                         @endif
+                        
                         <li class="sub-menu-separator"></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                           document.getElementById('logout-form').submit();"> <i class="icon-unlock"></i>Logout</a></li>
