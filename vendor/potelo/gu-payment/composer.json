@@ -1,0 +1,53 @@
+{
+    "name": "potelo/gu-payment",
+    "description": "GuPayment fornece uma interface para controlar assinaturas do iugu.com",
+    "keywords": ["laravel", "iugu", "billing", "pagamentos"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabriel Peixoto",
+            "email": "gabriel@potelo.com.br"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/Potelo/iugu-php.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "iugu/iugu": "dev-master",
+        "dompdf/dompdf": "^0.8.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "~1.0",
+        "orchestra/testbench": "~3.5",
+        "fzaninotto/faker": "^1.7",
+        "php-coveralls/php-coveralls": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Potelo\\GuPayment\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Potelo\\GuPayment\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Potelo\\GuPayment\\GuPaymentServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
