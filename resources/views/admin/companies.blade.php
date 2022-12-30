@@ -84,14 +84,16 @@
 								</thead>
 								<tbody>
 									@foreach($companies as $company)
-									<tr>   
+									<tr>
+												
 										<th scope="row">{{ $loop->iteration + $companies->firstItem() - 1 }}</th>
 										<td>{{$company->razao_social}}</td>
 										<td>{{$company->cnpj}}</td>
 										<td>{{$company->telefone}}</td>
-										<td>{{$company->responsavel}}</td>
+                                        <td>{{$company->responsavel}}</td>
 									</tr>
 									@endforeach
+									
 								</tbody>
 							</table>
 						</div>
