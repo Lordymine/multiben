@@ -79,6 +79,8 @@
 										<th>Razão Social</th>
 										<th>CNPJ</th>
 										<th>Telefone</th>
+										<!-- Inserindo email -->
+										<th>E-mail</th>
 										<th>Responsável</th>
 									</tr>
 								</thead>
@@ -89,6 +91,9 @@
 										<td>{{$company->razao_social}}</td>
 										<td>{{$company->cnpj}}</td>
 										<td>{{$company->telefone}}</td>
+										<!-- Inserindo email -->
+										<!-- Necessário adequar o acesso aos dados -->
+										<td>{{$company->email}}</td>
 										<td>{{$company->responsavel}}</td>
 									</tr>
 									@endforeach
