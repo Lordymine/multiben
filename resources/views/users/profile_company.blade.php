@@ -130,13 +130,15 @@
 				<div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x"><span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Successo:</strong> {{session('success')}}</div>
 				@endif
 
+					<!-- Adequando o for dos Labels com seus Inputs -->
 					<div class="padding-top-2x mt-2 hidden-lg-up"></div>
 					<form class="row" method="POST" enctype="multipart/form-data" action="{{ route('user_store_company') }}">
 						@csrf
 						<input class="form-control" type="text" id="id" name="id" value="{{ $empresa != null ? $empresa->id : null}}" hidden>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-fn">RAZÃO SOCIAL</label>
+								<!-- <label for="account-fn">RAZÃO SOCIAL</label> -->
+								<label for="razao_social">RAZÃO SOCIAL</label>
 									<input class="form-control" type="text" id="razao_social" placeholder="Digite a Razão Sociali" name="razao_social" value="{{ $user->name }}" required>
 							</div>
 						</div>
@@ -148,25 +150,27 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">CNPJ</label>
+								<label for="cnpj">CNPJ</label>
 								<input class="form-control" type="text" id="cnpj" name="cnpj" value="{{ Auth::user()->cnpj ?  App\Repositories\UsersRepository::mask(Auth::user()->cnpj."'",'##.###.###/####-##') : ''  }}"  placeholder="00.000.000/0000-00" onkeyup="mascara('##.###.###/####-##',this,event,true)" maxlength="18">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">RESPONSÁVEL</label>
+								<label for="responsavel">RESPONSÁVEL</label>
 								<input class="form-control" type="text" id="responsavel" name="responsavel" value="{{ $count_empresa ? $empresa->responsavel : Auth::user()->responsavel_empresa }}"  maxlength="255" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-email">E-MAIL </label>
+								<!-- <label for="account-email">E-MAIL </label> -->
+								<label for="email">E-MAIL </label>
 								<input class="form-control" type="email" id="email" name="email" value="{{ Auth::user()->email }}" placeholder="exemplo@exemplo.com" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-phone">TELEFONE</label>
+								<!-- <label for="account-phone">TELEFONE</label> -->
+								<label for="telefone">TELEFONE</label>
 								<input class="form-control" type="text" id="telefone" placeholder="(91)99999-9999" name="telefone" value="{{ App\Repositories\UsersRepository::mask($user->telefone."'",'(##) #####-####') }}" onkeyup="mascara('(##) #####-####',this,event,true)" maxlength="15">
 							</div>
 						</div>
@@ -178,43 +182,43 @@
 <!-- 						</div> -->
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">CEP</label>
+								<label for="cep">CEP</label>
 								<input class="form-control" type="text" name="cep" value="{{ $count_empresa ? $empresa->cep : '' }}" id="cep" placeholder="00000000" onkeyup="mascara('########',this,event,true)" maxlength="9" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">LOGRADOURO</label>
+								<label for="endereco">LOGRADOURO</label>
 								<input class="form-control" type="text" name="endereco" value="{{ $count_empresa ? $empresa->endereco : '' }}" id="endereco" placeholder="Endereço completo" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">COMPLEMENTO</label>
+								<label for="complemento">COMPLEMENTO</label>
 								<input class="form-control" type="text" name="complemento" value="{{ $count_empresa ? $empresa->complemento : '' }}" id="complemento" placeholder="Complemento para o endereço" >
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">NÚMERO</label>
-								<input class="form-control" type="text" name="numero_endereco" value="{{ $count_empresa ? $empresa->numero_endereco : '' }}" id="account-ln" placeholder="Endereço completo" required>
+								<label for="numero_endereco">NÚMERO</label>
+								<input class="form-control" type="text" name="numero_endereco" value="{{ $count_empresa ? $empresa->numero_endereco : '' }}" id="numero_endereco" placeholder="Endereço completo" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">PERÍMETRO</label>
-								<input class="form-control" type="text" name="perimetro" value="{{ $count_empresa ? $empresa->perimetro : '' }}" id="account-ln" placeholder="Perímetro da localização da empresa">
+								<label for="perimetro">PERÍMETRO</label>
+								<input class="form-control" type="text" name="perimetro" value="{{ $count_empresa ? $empresa->perimetro : '' }}" id="perimetro" placeholder="Perímetro da localização da empresa">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">BAIRRO</label>
+								<label for="bairro">BAIRRO</label>
 								<input class="form-control" type="text" name="bairro" id="bairro" value="{{ $count_empresa ? $empresa->bairro : '' }}" placeholder="Endereço completo" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">UF</label>
+								<label for="uf">UF</label>
 								@php 
 									$ufValue = null;
 									if($count_empresa){
@@ -229,7 +233,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">CIDADE</label>
+								<label for="cidade">CIDADE</label>
 								<input class="form-control" type="text" name="cidade" value="{{ $count_empresa ? $empresa->nome_cidade : '' }}" id="cidade" placeholder="Localidade" required readonly>
 
 							</div>
@@ -241,26 +245,26 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">Facebook</label>
-								<input class="form-control" type="text" name="facebook" value="{{ $count_empresa ? $empresa->facebook : '' }}" placeholder="Facebook" >
+								<label for="facebook">Facebook</label>
+								<input class="form-control" type="text" name="facebook" value="{{ $count_empresa ? $empresa->facebook : '' }}" id="facebook" placeholder="Facebook" >
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">Instagram</label>
-								<input class="form-control" type="text" name="instagram" value="{{ $count_empresa ? $empresa->instagram : '' }}" placeholder="Instagram" >
+								<label for="instagram">Instagram</label>
+								<input class="form-control" type="text" name="instagram" value="{{ $count_empresa ? $empresa->instagram : '' }}" id="instagram" placeholder="Instagram" >
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">Youtube</label>
-								<input class="form-control" type="text" name="youtube" value="{{ $count_empresa ? $empresa->youtube : '' }}" placeholder="Youtube" >
+								<label for="youtube">Youtube</label>
+								<input class="form-control" type="text" name="youtube" value="{{ $count_empresa ? $empresa->youtube : '' }}" id="youtube" placeholder="Youtube" >
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">Tiktok</label>
-								<input class="form-control" type="text" name="tiktok" value="{{ $count_empresa ? $empresa->tiktok : '' }}" placeholder="Tiktok" >
+								<label for="tiktok">Tiktok</label>
+								<input class="form-control" type="text" name="tiktok" value="{{ $count_empresa ? $empresa->tiktok : '' }}" id="tiktok" placeholder="Tiktok" >
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -310,7 +314,7 @@
 						</div>
 						<div class="col-md-6" id="div_desconto" @if($count_empresa) @if($empresa->id_categoria_empresas == 2) style="display: none" @endif @endif>
 							<div class="form-group">
-								<label for="account-ln">PORCENTAGEM DE DESCONTO OFERECIDO</label>
+								<label for="desconto">PORCENTAGEM DE DESCONTO OFERECIDO</label>
 								<input class="form-control" type="number" name="desconto" id="desconto" value="{{ $count_empresa ? $empresa->desconto : '10' }}" placeholder="%" min="10">
 							</div>
 						</div>
@@ -368,13 +372,13 @@
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="account-ln">HORÁRIO DE ABERTURA</label>
+								<label for="hora_abertura">HORÁRIO DE ABERTURA</label>
 								<input class="form-control" type="time" name="hora_abertura" id="hora_abertura" value="{{ $count_empresa ? $empresa->hora_abertura : '' }}" placeholder="00:00" required>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="account-ln">HORÁRIO DE FECHAMENTO</label>
+								<label for="hora_fechamento">HORÁRIO DE FECHAMENTO</label>
 								<input class="form-control" type="time" name="hora_fechamento" id="hora_fechamento" value="{{ $count_empresa ? $empresa->hora_fechamento : '' }}" placeholder="00:00" required>
 							</div>
 						</div>
@@ -422,19 +426,19 @@
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="account-ln">HORÁRIO DE ABERTURA (FIM DE SEMANA)</label>
+								<label for="hora_abertura">HORÁRIO DE ABERTURA (FIM DE SEMANA)</label>
 								<input class="form-control" type="time" name="hora_abertura" id="hora_abertura" value="{{ $count_empresa ? $empresa->hora_abertura : '' }}" placeholder="00:00" required>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="account-ln">HORÁRIO DE FECHAMENTO (FIM DE SEMANA)</label>
+								<label for="hora_fechamento">HORÁRIO DE FECHAMENTO (FIM DE SEMANA)</label>
 								<input class="form-control" type="time" name="hora_fechamento" id="hora_fechamento" value="{{ $count_empresa ? $empresa->hora_fechamento : '' }}" placeholder="00:00" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">LOGO DA EMPRESA</label>
+								<label for="">LOGO DA EMPRESA</label>
 								<div>
     								<div class="custom-file">
     									<input class="custom-file-input" type="file" name="logo" id="logo">
@@ -469,7 +473,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="account-ln">VIDEO DA EMPRESA</label>
+								<label for="video">VIDEO DA EMPRESA</label>
 								<div>
     								<div class="custom-file">
     									<input class="form-control" type="text" name="video" value="{{ $count_empresa ? $empresa->video : '' }}" id="video" placeholder="Link do youtube" >
@@ -479,7 +483,7 @@
 						</div>
 						<div class="col-md-12" id="imagens-empresa">
 							<div class="form-group">
-								<label for="account-ln">IMAGENS DA EMPRESA</label>
+								<label for="">IMAGENS DA EMPRESA</label>
 							<div id="uploads_empresa">
 								<p class="text-muted">Imagens nos formatos: jpg, png, jpeg e gif</p>
 								
@@ -489,19 +493,19 @@
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" name="filename[]" class="custom-file-input" id="images2">
-                                    <label class="custom-file-label" id="filename-label2" for="images">Escolha a imagem..</label>
+                                    <label class="custom-file-label" id="filename-label2" for="images2">Escolha a imagem..</label>
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" name="filename[]" class="custom-file-input" id="images3">
-                                    <label class="custom-file-label" id="filename-label3" for="images">Escolha a imagem..</label>
+                                    <label class="custom-file-label" id="filename-label3" for="images3">Escolha a imagem..</label>
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" name="filename[]" class="custom-file-input" id="images4">
-                                    <label class="custom-file-label" id="filename-label4" for="images">Escolha a imagem..</label>
+                                    <label class="custom-file-label" id="filename-label4" for="images4">Escolha a imagem..</label>
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" name="filename[]" class="custom-file-input" id="images5">
-                                    <label class="custom-file-label" id="filename-label5" for="images">Escolha a imagem..</label>
+                                    <label class="custom-file-label" id="filename-label5" for="images5">Escolha a imagem..</label>
                                 </div>
                                 </div>
                             </div>
@@ -523,7 +527,7 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="account-ln">DESCRIÇÃO DO SERVIÇO PRESTADO</label>
+								<label for="descricao_servico">DESCRIÇÃO DO SERVIÇO PRESTADO</label>
 								<textarea class="form-control" name="descricao_servico" id="descricao_servico" rows="5">{{ $count_empresa ? $empresa->descricao_servico : '' }}</textarea>
 							</div>
 						</div>
