@@ -69,8 +69,24 @@
 			<div class="row">
 				@include('layouts.admin.side-menu')
 				<div class="col-lg-8">
-					<div class="col-md-12 ">
+					<div class="col-md-12">
 						<h6 class="text-muted text-normal text-uppercase">Lista de empresas cadastradas no sistema</h6>
+						<!--Inserido controle de Parceiros e Conveniados sem acesso aos dados-->
+						<div class="col-md-12">
+							<div class="col-md-6"></div>
+									<!--CSS in line inserido nesta div--->
+							<div class="col-md-6" style="padding: 20px;">
+								<div class="form-group">
+									<label for="escolha">Parceiros | Conveniados</label>
+									<select class="form-control" name="escolha" id="escolha">
+										<option value="" selected disabled>Selecione a Opção</option>
+										<option value="Parceiros" >Parceiros</option>
+										<option value="Submetido" >Conveniados</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
 						<div class="table-responsive">
 							<table class="table">
 								<thead>
