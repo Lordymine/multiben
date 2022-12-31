@@ -314,6 +314,8 @@
 								<input class="form-control" type="number" name="desconto" id="desconto" value="{{ $count_empresa ? $empresa->desconto : '10' }}" placeholder="%" min="10">
 							</div>
 						</div>
+						
+						<!-- Dias da semana -->
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="account-ln">DIAS DE FUNCIONAMENTO</label><br>
@@ -362,6 +364,42 @@
 									@endif
 									<label class="custom-control-label" for="sex">Sexta</label>
 								</div>
+							</div>							
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="account-ln">HORÁRIO DE ABERTURA</label>
+								<input class="form-control" type="time" name="hora_abertura" id="hora_abertura" value="{{ $count_empresa ? $empresa->hora_abertura : '' }}" placeholder="00:00" required>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="account-ln">HORÁRIO DE FECHAMENTO</label>
+								<input class="form-control" type="time" name="hora_fechamento" id="hora_fechamento" value="{{ $count_empresa ? $empresa->hora_fechamento : '' }}" placeholder="00:00" required>
+							</div>
+						</div>
+
+						<!-- Final de semana -->
+
+						<!-- Se faz necessário criar colunas na tabela empresas 
+							 para respeitar as novas variáveis colocadas a baixo
+							 para que haja um controle melhor dos horários.
+							 Segue como sugestão:
+								 
+							 Coluna: dias_funcionamento_fim_semana
+							 Coluna: hora_abertura_fim_semana
+							 Coluna: hora_fechamento_fim_semana
+							 ....
+							 As variáveis do código também precisam respeitar
+							 os nomes das colunas da tabela Empresas -->
+
+							 <!-- O Código sugerido está todo comentado 
+							 	  a partir da linha 433 à 469 -->
+												
+							<!-- CSS in line para correção de div -->
+
+						<div class="col-md-6">
+							<div class="form-group" style="margin-top: 28px;"> 
 								<div class="custom-control custom-checkbox custom-control-inline">
 									@if($count_empresa)
 									@php $dias = json_decode($empresa->dias_funcionamento); @endphp
@@ -384,13 +422,13 @@
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="account-ln">HORÁRIO DE ABERTURA</label>
+								<label for="account-ln">HORÁRIO DE ABERTURA (FIM DE SEMANA)</label>
 								<input class="form-control" type="time" name="hora_abertura" id="hora_abertura" value="{{ $count_empresa ? $empresa->hora_abertura : '' }}" placeholder="00:00" required>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="account-ln">HORÁRIO DE FECHAMENTO</label>
+								<label for="account-ln">HORÁRIO DE FECHAMENTO (FIM DE SEMANA)</label>
 								<input class="form-control" type="time" name="hora_fechamento" id="hora_fechamento" value="{{ $count_empresa ? $empresa->hora_fechamento : '' }}" placeholder="00:00" required>
 							</div>
 						</div>
