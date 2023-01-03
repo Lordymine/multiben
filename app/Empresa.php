@@ -13,9 +13,11 @@ class Empresa extends Model
      *
      * @var array
      */
+
+     /* Tentativa de adicinar e-mail do Usuário dentro de Empresas*/
     protected $fillable = [
         'razao_social','nome_fantasia', 'cnpj', 'endereco','numero_endereco','bairro','cidade','uf','cep','telefone',
-        'user_id','servico','desconto','dias_funcionamento','hora_abertura','hora_fechamento',
+        'user_email','user_id','servico','desconto','dias_funcionamento','hora_abertura','hora_fechamento',
         'descricao_servico','logo','perimetro','password','complemento','id_categoria_empresas','video','responsavel',
         'facebook', 'instagram', 'youtube', 'tiktok'
     ];

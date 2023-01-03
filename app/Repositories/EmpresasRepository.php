@@ -34,6 +34,19 @@ class EmpresasRepository implements EmpresasRepositoryInterface
         return $empresas;
     }
 
+    /* Possivel código a ser usado.*/
+    
+    /*public function getCompaniesbyEmail($id)
+    {
+        $empresas = DB::table('empresas')
+        ->join('users', 'users.id', '=', 'empresas.user_id')
+        ->select('empresas.*', 'users.email')
+        ->where('users.users_id','=',$id)
+        ->get();
+
+        return $empresas;
+    }*/
+
     public function getCompaniesbyCategoryRatings($id)
     {
 

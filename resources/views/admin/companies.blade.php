@@ -101,6 +101,7 @@
 									</tr>
 								</thead>
 								<tbody>
+									
 									@foreach($companies as $company)
 									<tr>   
 										<th scope="row">{{ $loop->iteration + $companies->firstItem() - 1 }}</th>
@@ -108,11 +109,11 @@
 										<td>{{$company->cnpj}}</td>
 										<td>{{$company->telefone}}</td>
 										<!-- Inserindo email -->
-										<!-- Necessário adequar o acesso aos dados -->
-										<td>{{$company->email}}</td>
+										<td>{{$company->user->email}}</td>
 										<td>{{$company->responsavel}}</td>
 									</tr>
 									@endforeach
+								
 								</tbody>
 							</table>
 						</div>
