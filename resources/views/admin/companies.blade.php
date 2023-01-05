@@ -109,7 +109,7 @@
 										<td>{{$company->cnpj}}</td>
 										<td>{{$company->telefone}}</td>
 										<!-- Inserindo email -->
-										<td>{{$company->user->email}}</td>
+										<td>{{$company->email}}</td>
 										<td>{{$company->responsavel}}</td>
 									</tr>
 									@endforeach
