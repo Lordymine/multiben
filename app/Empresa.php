@@ -7,7 +7,6 @@ use App\EmpresaRating;
 
 class Empresa extends Model
 {
-
     /**
      * The attributes that are mass assignable.
      *
@@ -16,7 +15,7 @@ class Empresa extends Model
 
     protected $fillable = [
         'razao_social','nome_fantasia', 'cnpj', 'endereco','numero_endereco','bairro','cidade','uf','cep','telefone',
-        'user_id','servico','desconto','dias_funcionamento','hora_abertura','hora_fechamento',
+        'user_email','user_id','servico','desconto','dias_funcionamento','hora_abertura','hora_fechamento',
         'descricao_servico','logo','perimetro','password','complemento','id_categoria_empresas','video','responsavel',
         'facebook', 'instagram', 'youtube', 'tiktok'
     ];
@@ -83,7 +82,7 @@ class Empresa extends Model
             // adiciona quais estrelas estão preenchidas e quais serão preenchidas pela metade
             while ($score > 0) {
                 $stars[$score - 1] = 'filled';
-                $score --;
+                $score--;
             }
         }
 
@@ -112,8 +111,8 @@ class Empresa extends Model
 
     public function capa()
     {
-        $src = 'storage/logos/'.$this->logo;
-        if(!file_exists(__DIR__ . '/../public/'.$src) || empty($this->logo)){
+        $src = 'storage/logos/' . $this->logo;
+        if (!file_exists(__DIR__ . '/../public/' . $src) || empty($this->logo)) {
             $src = 'img/logo/logo.jpeg';
         }
 
