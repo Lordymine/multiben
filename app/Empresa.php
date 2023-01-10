@@ -33,6 +33,12 @@ class Empresa extends Model
     public $stars;
     public $halfStars;
 
+    // Declarando o relacionamento 1:1 entre Empresa e CategoriaEmpresa
+    public function categoriaempresa()
+    {
+        return $this->hasOne(CategoriaEmpresa::class);
+    }
+
     public function solicitacao()
     {
         return $this->hasMany('App\UserSolicitacaoBonus');
