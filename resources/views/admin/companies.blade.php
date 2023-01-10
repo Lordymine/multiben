@@ -80,7 +80,8 @@
                                     <select class="form-control" name="escolha" id="escolha">
                                         <option value="" selected disabled>Selecione a Opção</option>
                                         <option value="Parceiros">Parceiros</option>
-                                        <option value="Submetido">Conveniados</option>
+                                        <!-- value trocado para Convenios -->
+                                        <option value="Convenios">Conveniados</option>
                                     </select>
                                 </div>
                             </div>

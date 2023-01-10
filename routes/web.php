@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Correções de convenções (PSR-12)
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/', 'HomeController@index')->name('index');
@@ -52,6 +53,8 @@ Route::get('/admin/referrals', 'AdminController@referrals')->middleware(['auth',
 Route::get('/admin/marketing', 'AdminController@marketing')->middleware(['auth', 'checkprivileges'])->name('admin.marketing.index');
 
 Route::get('/empresa/acesso', 'EmpresasController@acesso')->name('empresa.acesso');
+
+// Filtro
 
 Route::group(['prefix' => 'users'], function () {
 
@@ -105,7 +108,8 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('rating-confirmation', 'UsersController@ratingConfirmation')->name('rating_confirmation');
     Route::get('company-rating', 'UsersController@rating')->name('company_rating');
 
-//     Route::post('plano-solicitation-confirmation', 'PlanoController@planoConfirmation')->name('plano_solicitation_confirmation');
+/*     Route::post('plano-solicitation-confirmation', 'PlanoController@planoConfirmation')->name
+        ('plano_solicitation_confirmation'); */
 
     //IUGU
 //     Route::get('assinar-plano-passo-1','PlanoController@index');

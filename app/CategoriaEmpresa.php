@@ -1,5 +1,7 @@
 <?php
 
+// Correções de convenções (PSR-12)
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
