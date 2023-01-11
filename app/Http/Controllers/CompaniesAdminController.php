@@ -1,8 +1,8 @@
 <?php
 
+// Correções de convenções (PSR-12)
+
 namespace App\Http\Controllers;
-
-
 
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\UsersRepositoryInterface;
@@ -30,9 +30,9 @@ class CompaniesAdminController extends Controller
     {
 
         $result  = $users_repository->getByCode($request);
-        if($result){
-            return '<span class="text-lg text-success"><strong>USUÁRIO ATIVO</strong> '.strtoupper($result->name).' '.strtoupper($result->sobrenome).'</span>';
-        }else{
+        if ($result) {
+            return '<span class="text-lg text-success"><strong>USUÁRIO ATIVO</strong> ' . strtoupper($result->name) . ' ' . strtoupper($result->sobrenome) . '</span>';
+        } else {
             return '<span class="text-lg text-danger"><strong>USUÁRIO NÃO ENCONTRADO</strong></span>';
         }
     }
@@ -48,11 +48,11 @@ class CompaniesAdminController extends Controller
     }
     public function customersList(UsersRepositoryInterface $users_repository)
     {
-        return view('companies_admin.customers_list',['customers' => $users_repository->customersList()]);
+        return view('companies_admin.customers_list', ['customers' => $users_repository->customersList()]);
     }
 
     public function multbenUsedPayments(UsersRepositoryInterface $users_repository)
     {
-        return view('companies_admin.multben_used_payments',['payments' => $users_repository->usedPayments()]);
+        return view('companies_admin.multben_used_payments', ['payments' => $users_repository->usedPayments()]);
     }
 }

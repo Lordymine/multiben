@@ -55,22 +55,6 @@ Route::get('/admin/marketing', 'AdminController@marketing')->middleware(['auth',
 
 Route::get('/empresa/acesso', 'EmpresasController@acesso')->name('empresa.acesso');
 
-// Filtro para Parceiros e Conveniados
-
-/*Route::get('Model/', function () {
-    /*$CategoriaEmpresa = \App\CategoriaEmpresa::all();
-    return $CategoriaEmpresa;*/
-    //return \App\CategoriaEmpresa::paginate(8);
-
-    /*$CategoriaEmpresa = \App\CategoriaEmpresa::find(1);
-    $CategoriaEmpresa-> categoria;*/
-
-    //$empresa = \App\CategoriaEmpresa::find(1);
-    /*$CategoriaEmpresa = \App\Empresa::paginate(5);
-
-    return $CategoriaEmpresa;*/
-/*});*/
-
 Route::group(['prefix' => 'users'], function () {
 
 //     Route::get('/profile', function () {
@@ -144,6 +128,8 @@ Route::group(['prefix' => 'companies'], function () {
 
     Route::get('/{id}', 'CompaniesController@index')->name('companies_index');
     Route::get('/info/{id}', 'CompaniesController@companyInfo')->name('companies_info');
+    // Filtro para Parceiros e Conveniados
+    //Route::get('/admin', 'AdminController@empresascategorias')->name('empresas_categorias');
     Route::post('/por-cidade', 'CompaniesController@companyByCity');
     Route::post('/por-desconto', 'CompaniesController@companyByDeduction');
 });

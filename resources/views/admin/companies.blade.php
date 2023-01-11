@@ -70,19 +70,20 @@
                 <div class="col-lg-8">
                     <div class="col-md-12">
                         <h6 class="text-muted text-normal text-uppercase">Lista de empresas cadastradas no sistema</h6>
-                        <!--Inserido controle de Parceiros e Conveniados sem acesso aos dados-->
                         <div class="col-md-12">
                             <div class="col-md-6"></div>
                             <!--CSS in line inserido nesta div--->
                             <div class="col-md-6" style="padding: 20px;">
                                 <div class="form-group">
-                                    <label for="escolha">Parceiros | Conveniados</label>
-                                    <select class="form-control" name="escolha" id="escolha">
-                                        <option value="" selected disabled>Selecione a Opção</option>
-                                        <option value="Parceiros">Parceiros</option>
-                                        <!-- value trocado para Convenios -->
-                                        <option value="Convenios">Conveniados</option>
-                                    </select>
+                                    <!--Inserido controle de Parceiros e Conveniados sem acesso aos dados-->
+                                    <form action="{{ route('admin.companies.index') }}" method="GET">
+                                        <label for="categoria_empresas">Parceiros | Conveniados</label>
+                                        <select class="form-control" name="categoria_empresas" id="id_categoria_empresa">
+                                            <option value="">Selecione a Opção</option>
+                                            <option value="Parceiros">Parceiros</option>
+                                            <option value="Conveniados">Conveniados</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                         </div>

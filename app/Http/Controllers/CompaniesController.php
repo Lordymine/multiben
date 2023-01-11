@@ -11,6 +11,8 @@ use App\Favorite;
 use Auth;
 use App\EmpresaRating;
 use App\Empresa;
+use Illuminate\Support\Facades\App;
+use Illuminate\View\View;
 
 // Correções de convenções (PSR-12)
 
