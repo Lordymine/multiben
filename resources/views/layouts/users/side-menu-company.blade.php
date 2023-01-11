@@ -19,8 +19,13 @@
 			<a class="list-group-item @if(Route::currentRouteName() == 'users_profile') active @endif" href="{{route('users_profile')}}">
 				<i class="icon-head"></i>Perfil
 			</a>
-			<a class="list-group-item @if(Route::currentRouteName() == 'user_bonus' or Route::currentRouteName() == 'filter_location') active @endif" href="{{route('user_bonus')}}">
+				
+				<!-- Trocando Solicitações de Bônus por Solicitação de Bônus-->
+			<!-- <a class="list-group-item @if(Route::currentRouteName() == 'user_bonus' or Route::currentRouteName() == 'filter_location') active @endif" href="{{route('user_bonus')}}">
 				<i class="icon-archive"></i>Solicitações de Bônus
+			</a> -->
+			<a class="list-group-item @if(Route::currentRouteName() == 'user_bonus' or Route::currentRouteName() == 'filter_location') active @endif" href="{{route('user_bonus')}}">
+				<i class="icon-archive"></i>Solicitação de Bônus
 			</a>
 			<a class="list-group-item @if(Route::currentRouteName() == 'user_referrals') active @endif" href="{{route('user_referrals')}}">
 				<i class="icon-tag"></i>Indicações
