@@ -1,5 +1,6 @@
 <?php
 
+// Correções de convenções (PSR-12)
 
 namespace App;
 
@@ -24,4 +25,10 @@ class CategoriaEmpresa extends Model
     protected $hidden = [
         'id',
     ];
+
+    // Declarando o relacionamento 1:1 entre CategoriaEmpresa e Empresa
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'id_categoria_empresas');
+    }
 }

@@ -8,13 +8,13 @@ class AddForeignKeyEmpresasTable extends Migration
 {
     /**
      * Run the migrations.
+     * Aqui está sendo inserido o Id do Usuário.
      *
      * @return void
      */
     public function up()
     {
-        Schema::table('empresas', function(Blueprint $table)
-        {
+        Schema::table('empresas', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -26,9 +26,8 @@ class AddForeignKeyEmpresasTable extends Migration
      */
     public function down()
     {
-        
-        Schema::table('empresas', function(Blueprint $table)
-        {
+
+        Schema::table('empresas', function (Blueprint $table) {
             $table->dropForeign('user_id');
         });
     }

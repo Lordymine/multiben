@@ -19,12 +19,11 @@ use Notification;
 use Mail;
 use App\Mail\ContactMail;
 use Log;
-use \App\Jobs\SendMarketingEmailJob;
+use App\Jobs\SendMarketingEmailJob;
 use App\Convites;
 
 class AdminController extends Controller
 {
-
     public function users()
     {
         $users = User::paginate(15);
@@ -34,8 +33,10 @@ class AdminController extends Controller
     public function companies()
     {
         $companies = Empresa::paginate(15);
+
         return view('admin.companies')->with(['companies' => $companies, 'admin' => Auth::user()]);
     }
+
 
     public function payments()
     {
@@ -93,9 +94,9 @@ class AdminController extends Controller
 
     //  ADMINISTRAÇÃO DE USUÁRIOS
 
-    public function listUsers(){
+    public function listUsers()
+    {
         // aqui o administrador lista os usuario
-
     }
 
     public function createUser()
@@ -114,7 +115,7 @@ class AdminController extends Controller
             'rg' => $request->get('rg'),
             'cpf' => $request->get('cpf'),
             'password' => Hash::make($request->get('password'))
-        ]);
+         ]);
         $user->save();
         return redirect(route('admin'))->with('success', 'Novo usuario cadastrado sucesso!');
     }
@@ -123,7 +124,6 @@ class AdminController extends Controller
     public function showUser(User $user)
     {
         // aqui o administrador exive um usuario
-
     }
 
     public function editUser(User $user)
@@ -136,13 +136,17 @@ class AdminController extends Controller
         // aqui a edição do usuario é armazenada no banco
         $register = User::find($user->id);
         $register->name = $request->get('name');
-        $register->sobrenome = $request->get('sobrenome');;
-        $register->email = $request->get('email');;
-        $register->rg = $request->get('rg');;
-        $register->cpf = $request->get('cpf');;
-        $register->telefone = $request->get('telefone');;
-        if(!$request->get('password'))
-        {
+        $register->sobrenome = $request->get('sobrenome');
+        ;
+        $register->email = $request->get('email');
+        ;
+        $register->rg = $request->get('rg');
+        ;
+        $register->cpf = $request->get('cpf');
+        ;
+        $register->telefone = $request->get('telefone');
+        ;
+        if (!$request->get('password')) {
              $register->password = Hash::make($request->get('password'));
         }
 
@@ -158,27 +162,27 @@ class AdminController extends Controller
 
         return redirect(route('admin'))->with('success', 'Usuário deletado com sucesso!');
     }
-	public function companyArea()
+    public function companyArea()
     {
         return view('admin.company_area');
     }
-    
+
     public function sendMarketingMail(Request $request)
     {
         $nameFile = null;
         $sendTo = [];
-        
+
         if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
-            $name = uniqid(date('HisYmd').Auth::user()->matricula);
-            
+            $name = uniqid(date('HisYmd') . Auth::user()->matricula);
+
             $extension = $request->logo->extension();
-            
+
             $nameFile = "{$name}.{$extension}";
-            
-            
+
+
             $upload = $request->logo->move('storage/images', $nameFile, 'public');
         }
-        
+
         $data = [
             'titulo' => $request->get('titulo'),
             'corpo' => $request->get('corpo'),
@@ -186,10 +190,9 @@ class AdminController extends Controller
             'users' => User::get(),
             'enviar_para' => $request->get('enviar_para'),
         ];
-        
+
         SendMarketingEmailJob::dispatch($data);
-        
+
         return redirect(route('admin.marketing.index'))->with('success', 'Emails enviados com sucesso!');
     }
-    
 }
